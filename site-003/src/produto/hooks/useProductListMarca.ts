@@ -30,7 +30,7 @@ export function useProductListMarca(initialType: string) {
         throw new Error("Sessão expirada ou não autorizada. Faça login novamente.");
       }
 
-      return resposta.data();
+      return resposta.data;
     }
   });
 

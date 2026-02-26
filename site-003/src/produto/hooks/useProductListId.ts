@@ -27,7 +27,7 @@ export function useProductListId(initialType: number) {
                 throw new Error("Sessão expirada ou não autorizada. Faça login novamente.");
             }
 
-            return resposta.data();
+            return resposta.data;
         }
     });
 
