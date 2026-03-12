@@ -1,0 +1,148 @@
+.navbar {
+  width: 100%;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Brilho sutil embaixo */
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brand-primary-glow), var(--accent-cyan-soft), transparent);
+}
+
+/* ============================
+   Logo / Brand
+   ============================ */
+.brand {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: opacity var(--transition-fast);
+}
+
+.brand:hover {
+  opacity: 0.85;
+}
+
+/* ============================
+   Links de Navegação
+   ============================ */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+  background: var(--brand-primary-soft);
+}
+
+/* Link ativo */
+.navLinkActive {
+  color: var(--accent-cyan);
+  background: var(--accent-cyan-soft);
+}
+
+/* ============================
+   Grupo de ações (Login/Register)
+   ============================ */
+.authGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.authLink {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.authLink:hover {
+  color: var(--text-primary);
+  background: var(--brand-primary-soft);
+}
+
+.authLinkPrimary {
+  background: linear-gradient(135deg, var(--brand-primary), #8B5CF6);
+  color: #fff;
+  border-radius: var(--radius-md);
+}
+
+.authLinkPrimary:hover {
+  background: linear-gradient(135deg, var(--brand-primary-hover), #A78BFA);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+/* ============================
+   Responsividade
+   ============================ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+    height: 56px;
+  }
+
+  .navLinks {
+    gap: 2px;
+  }
+
+  .navLink, .authLink {
+    padding: 6px 10px;
+    font-size: 0.82rem;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
+}

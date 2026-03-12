@@ -7,7 +7,7 @@ import api from "../../service/api";
 export function useProductListType(initialType: string) {
   const [typeProd, setType] = useState(initialType);
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: ['produto-spring', typeProd],
 
     //Promise(promessa)
@@ -49,6 +49,7 @@ export function useProductListType(initialType: string) {
     data,
     isLoading,
     isError,
+    error,
     typeProd,
     setType
   };

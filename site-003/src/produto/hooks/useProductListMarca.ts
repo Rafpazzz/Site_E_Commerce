@@ -6,7 +6,7 @@ import api from "../../service/api";
 export function useProductListMarca(initialType: string) {
   const [marcaProd, setMarca] = useState(initialType);
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     //o terceiro atributo é para guardar em uma gaveta os tipos sem misturar os produtos.
     // queryKey: ['busca-marca', marcaProd] // posso manter desssa forma, mas se tiver um terceiro atributo ajuda ao react a nao misturar produtos de tipo diferente
     queryKey: ['produto-spring', 'marca', marcaProd],
@@ -38,6 +38,7 @@ export function useProductListMarca(initialType: string) {
     data,
     isError,
     isLoading,
+    error,
     marcaProd,
     setMarca
   }

@@ -1,0 +1,197 @@
+/* ============================
+   Container do Formulário
+   ============================ */
+.container {
+  max-width: 440px;
+  margin: 80px auto;
+  padding: 40px;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brilho decorativo no topo */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-primary), var(--accent-cyan), transparent);
+}
+
+/* ============================
+   Título
+   ============================ */
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 800;
+  font-size: 1.6rem;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================
+   Formulário
+   ============================ */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ============================
+   Grupo de Campo
+   ============================ */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================
+   Input
+   ============================ */
+.input {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px var(--brand-primary-soft), var(--shadow-glow);
+  background-color: var(--bg-elevated);
+}
+
+/* ============================
+   Input com Erro
+   ============================ */
+.inputError {
+  border-color: var(--accent-error) !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px var(--accent-error-soft), 0 0 12px rgba(244, 63, 94, 0.2) !important;
+}
+
+/* ============================
+   Mensagem de Erro
+   ============================ */
+.errorText {
+  color: var(--accent-error);
+  font-size: 0.82rem;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* ============================
+   Caixa de Sucesso
+   ============================ */
+.successBox {
+  background: linear-gradient(135deg, var(--accent-success), #059669);
+  color: white;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 28px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  animation: fadeInSlideUp 0.4s var(--transition-bounce);
+}
+
+/* ============================
+   Botão Principal
+   ============================ */
+.button {
+  padding: 15px;
+  background: linear-gradient(135deg, var(--brand-primary), #8B5CF6);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all var(--transition-normal);
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.3px;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.4);
+}
+
+.button:hover:not(:disabled)::after {
+  opacity: 1;
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ============================
+   Responsividade
+   ============================ */
+@media (max-width: 480px) {
+  .container {
+    margin: 40px 16px;
+    padding: 28px 22px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+}
